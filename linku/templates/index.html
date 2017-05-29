@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block body %}
+    <h1>Linku - Link shortener</h1>
+    <form action="{{ url_for('add_link') }}" method="post" class="add-link">
+        <input type="text" name="link" placeholder="add your link here">
+        <input type="submit" name="add">
+    </form>
+    <h2>Added links</h2>
+    {% for link in link_entries %}
+        <p>{{ link.id }} | {{ link.link }}</p>
+        {% else %}
+            <p>No link entries yet.</p>
+    {% endfor %}
+{% endblock %}
